@@ -13,8 +13,14 @@ form.addEventListener("submit", (event) => {
     desc,
     category,
   };
-  const myObj = JSON.stringify(obj);
-  localStorage.setItem(category, myObj);
+  axios
+  .post("https://crudcrud.com/api/501c3c41cc004beab6cc1562e6977006/expense",
+    obj
+  )
+  .then(res => console.log(res))
+  .catch(err => console.log(err))
+  // const myObj = JSON.stringify(obj);
+  // localStorage.setItem(category, myObj);
 
   let li = document.createElement("li");
   li.innerHTML = exAmt + "-" + desc + "-" + category;
